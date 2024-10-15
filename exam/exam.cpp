@@ -18,7 +18,7 @@ void createQuiz() {
     
     string quizTitle;
 
-    cout << "Enter quiz title (single word): ";
+    cout << "\x1B[93mEnter quiz title (single word): ";
     cin >> quizTitle;
     quizTitles[numQuizzes] = quizTitle;
 
@@ -53,7 +53,7 @@ void createQuiz() {
 int displayQuizzes() {
     
     if (numQuizzes == 0) {
-        cout << "No quizzes available.\n";
+        cout << "\x1B[93mNo quizzes available.\n";
         return -1; // No quizzes to select
     }
 
@@ -61,7 +61,7 @@ int displayQuizzes() {
     const int numOptions = numQuizzes; // Number of available quizzes
 
     while (true) {
-        cout << "Available quizzes:\n";
+        cout << "\x1B[93mAvailable quizzes:\n";
         for (int i = 0; i < numOptions; ++i) {
             if (i == quizOption) {
                 cout << "> " << quizTitles[i] << " <" << endl; // Highlight current option
@@ -108,7 +108,7 @@ void takeQuiz() {
             bool answered = false; // To track if the user has submitted an answer
 
             while (!answered) {  // Loop until the user submits an answer
-               
+                
                 cout << "Question: " << quizQuestions[quizChoice][i] << endl;
 
                 for (int j = 0; j < MAX_OPTIONS; ++j) {
@@ -145,7 +145,7 @@ void takeQuiz() {
             }
         }
 
-        cout << "You answered " << correct << " mout of " << numQuestions[quizChoice] << " correctly.\n";
+        cout << "\x1B[36mYou answered\033[0m " << correct << " \x1B[31mout of\033[0m " << numQuestions[quizChoice] << " \x1B[32mcorrectly.\n\033[0m";
         cout << "press any key to contunue";
         _getch();
     }
@@ -160,7 +160,7 @@ void takeQuiz() {
 void adminMenu() {
     int adminOption = 0; // Starting at the first option
     const int adminMenuSize = 3;
-    const string adminMenuItems[adminMenuSize] = { "Create New Quiz", "View Quizzes", "Back to Main Menu" };
+    const string adminMenuItems[adminMenuSize] = { "\x1B[36mCreate New Quiz\033[0m", "\x1B[31mView Quizzes\033[0m", "\x1B[32mBack to Main Menu\033[0m" };
 
     while (true) {
        
@@ -212,10 +212,10 @@ int main() {
         char choice;
         int menuOption = 0; // Starting at the first option
         const int menuSize = 3;
-        const string menuItems[menuSize] = { "Admin Login", "Guest Login", "Exit" };
+        const string menuItems[menuSize] = { "\x1B[36mAdmin Login\033[0m", "\x1B[31mGuest Login\033[0m", "\x1B[32mExit\033[0m" };
 
         while (true) {
-           
+            
             // Display the menu
             for (int i = 0; i < menuSize; ++i) {
                 if (i == menuOption) {
