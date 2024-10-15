@@ -95,6 +95,48 @@ int displayQuizzes() {
     }
 }
 
+// Function for a guest to take a quiz
+void takeQuiz() {
+    int quizChoice = displayQuizzes(); // Get the selected quiz option index
+
+    if (quizChoice >= 0 && quizChoice < numQuizzes) {
+        int correct = 0;
+        cout << "Starting quiz: " << quizTitles[quizChoice] << endl;
+
+        for (int i = 0; i < numQuestions[quizChoice]; ++i) {
+            int answerOption = 0; // Starting at the first option
+            bool answered = false; // To track if the user has submitted an answer
+
+            while (!answered) {  // Loop until the user submits an answer
+               
+                cout << "Question: " << quizQuestions[quizChoice][i] << endl;
+
+                for (int j = 0; j < MAX_OPTIONS; ++j) {
+                    if (j == answerOption) {
+                        cout << "> " << quizOptions[quizChoice][i][j] << " <" << endl; // Highlight current option
+                    }
+                    else {
+                        cout << "  " << quizOptions[quizChoice][i][j] << endl;
+                    }
+                }
+
+                char choice = _getch(); // Get character input
+
+
+            }
+        }
+
+        cout << "You answered " << correct << " mout of " << numQuestions[quizChoice] << " correctly.\n";
+        cout << "press any key to contunue";
+        
+    }
+    else {
+        cout << "Invalid selection.\n";
+    }
+}
+
+
+
 
 
 int main() {
