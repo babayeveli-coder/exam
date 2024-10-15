@@ -49,6 +49,33 @@ void createQuiz() {
     cout << "Quiz created successfully!\n";
 }
 
+// Function to display quizzes with navigation
+int displayQuizzes() {
+    
+    if (numQuizzes == 0) {
+        cout << "No quizzes available.\n";
+        return -1; // No quizzes to select
+    }
+
+    int quizOption = 0; // Starting at the first quiz
+    const int numOptions = numQuizzes; // Number of available quizzes
+
+    while (true) {
+        cout << "Available quizzes:\n";
+        for (int i = 0; i < numOptions; ++i) {
+            if (i == quizOption) {
+                cout << "> " << quizTitles[i] << " <" << endl; // Highlight current option
+            }
+            else {
+                cout << "  " << quizTitles[i] << endl;
+            }
+        }
+
+        char choice = _getch();
+
+
+    }
+}
 
 
 
