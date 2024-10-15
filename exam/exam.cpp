@@ -147,7 +147,7 @@ void takeQuiz() {
 
         cout << "You answered " << correct << " mout of " << numQuestions[quizChoice] << " correctly.\n";
         cout << "press any key to contunue";
-        
+        _getch();
     }
     else {
         cout << "Invalid selection.\n";
