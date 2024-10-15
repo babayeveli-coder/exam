@@ -208,5 +208,30 @@ void adminMenu() {
 
 
 int main() {
+    while (true) {
+        char choice;
+        int menuOption = 0; // Starting at the first option
+        const int menuSize = 3;
+        const string menuItems[menuSize] = { "Admin Login", "Guest Login", "Exit" };
 
+        while (true) {
+           
+            // Display the menu
+            for (int i = 0; i < menuSize; ++i) {
+                if (i == menuOption) {
+                    cout << "> " << menuItems[i] << " <" << endl; // Highlight current option
+                }
+                else {
+                    cout << "  " << menuItems[i] << endl;
+                }
+            }
+
+            choice = _getch();
+
+            // Use switch statement to handle user input
+
+        }
+    }
+
+    return 0;
 }
