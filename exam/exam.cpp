@@ -176,7 +176,33 @@ void adminMenu() {
 
         char choice = _getch();
 
-
+        // Use switch statement to handle user input
+        switch (choice) {
+        case 'W':
+        case 'w':
+            adminOption = (adminOption - 1 + adminMenuSize) % adminMenuSize; // Move up
+            break;
+        case 'S':
+        case 's':
+            adminOption = (adminOption + 1) % adminMenuSize; // Move down
+            break;
+        case 'E':
+        case 'e':
+            // Process the selection when the user presses E
+            switch (adminOption) {
+            case 0: // Create New Quiz
+                createQuiz();
+                break;
+            case 1: // View Quizzes
+                displayQuizzes();
+                break;
+            case 2: // Back to Main Menu
+                return; // Exit this function to return to the main menu
+            }
+            break;
+        default:
+            break; // Ignore other inputs
+        }
     }
 }
 
