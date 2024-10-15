@@ -122,7 +122,26 @@ void takeQuiz() {
 
                 char choice = _getch(); // Get character input
 
-
+                switch (choice) {
+                case 'W':
+                case 'w':
+                    answerOption = (answerOption - 1 + MAX_OPTIONS) % MAX_OPTIONS; // Move up
+                    break;
+                case 'S':
+                case 's':
+                    answerOption = (answerOption + 1) % MAX_OPTIONS; // Move down
+                    break;
+                case 'E':
+                case 'e':
+                    // Check the answer when the user presses 'E'
+                    if (answerOption + 1 == quizAnswers[quizChoice][i]) {
+                        correct++;
+                    }
+                    answered = true;  // Mark the question as answered to proceed to the next
+                    break;
+                default:
+                    break; // Ignore other inputs
+                }
             }
         }
 
