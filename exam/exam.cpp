@@ -17,12 +17,12 @@ int numQuestions[MAX_QUESTIONS] = { 0 };
 void createQuiz() {
     cout << "\x1B[2J\x1B[H"; // Clear screen
     string quizTitle;
-
+    
     cout << "\x1B[93mEnter quiz title (single word): ";
     cin >> quizTitle;
     quizTitles[numQuizzes] = quizTitle;
 
-    
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
 
     cout << "How many questions in this quiz? ";
     int qCount;
@@ -30,15 +30,15 @@ void createQuiz() {
     numQuestions[numQuizzes] = qCount;
 
     for (int i = 0; i < qCount; ++i) {
-        
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Enter question " << i + 1 << ": ";
-        cin >> quizQuestions[numQuizzes][i];
+        cin >> quizQuestions[numQuizzes][i]; 
         for (int j = 0; j < MAX_OPTIONS; ++j) {
-            
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
             cout << "Enter option " << j + 1 << ": ";
             cin >> quizOptions[numQuizzes][i][j];
         }
-        
+        cin.ignore(numeric_limits<streamsize>::max(), '\n');
         cout << "Enter correct answer (1-4): ";
 
         cin >> quizAnswers[numQuizzes][i];
@@ -71,7 +71,7 @@ int displayQuizzes() {
             }
         }
 
-        char choice = _getch();
+        char choice = _getch(); 
 
         // Use switch statement to handle user input
         switch (choice) {
@@ -132,7 +132,7 @@ void takeQuiz() {
                     answerOption = (answerOption + 1) % MAX_OPTIONS; // Move down
                     break;
                 case 'E':
-                case 'e':
+                case 'e': 
                     // Check the answer when the user presses 'E'
                     if (answerOption + 1 == quizAnswers[quizChoice][i]) {
                         correct++;
