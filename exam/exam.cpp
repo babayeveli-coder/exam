@@ -156,6 +156,29 @@ void takeQuiz() {
 
 
 
+// Function for admin options
+void adminMenu() {
+    int adminOption = 0; // Starting at the first option
+    const int adminMenuSize = 3;
+    const string adminMenuItems[adminMenuSize] = { "Create New Quiz", "View Quizzes", "Back to Main Menu" };
+
+    while (true) {
+       
+        // Display the admin menu
+        for (int i = 0; i < adminMenuSize; ++i) {
+            if (i == adminOption) {
+                cout << "> " << adminMenuItems[i] << " <" << endl; // Highlight current option
+            }
+            else {
+                cout << "  " << adminMenuItems[i] << endl;
+            }
+        }
+
+        char choice = _getch();
+
+
+    }
+}
 
 
 int main() {
