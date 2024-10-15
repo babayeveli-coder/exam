@@ -15,7 +15,7 @@ int numQuestions[MAX_QUESTIONS] = { 0 };
 
 // Function to create a new quiz 
 void createQuiz() {
-    
+    cout << "\x1B[2J\x1B[H"; // Clear screen
     string quizTitle;
 
     cout << "\x1B[93mEnter quiz title (single word): ";
@@ -51,7 +51,7 @@ void createQuiz() {
 
 // Function to display quizzes with navigation
 int displayQuizzes() {
-    
+    cout << "\x1B[2J\x1B[H"; // Clear screen
     if (numQuizzes == 0) {
         cout << "\x1B[93mNo quizzes available.\n";
         return -1; // No quizzes to select
@@ -108,7 +108,7 @@ void takeQuiz() {
             bool answered = false; // To track if the user has submitted an answer
 
             while (!answered) {  // Loop until the user submits an answer
-                
+                cout << "\x1B[2J\x1B[H"; // Clear screen before displaying the options
                 cout << "Question: " << quizQuestions[quizChoice][i] << endl;
 
                 for (int j = 0; j < MAX_OPTIONS; ++j) {
@@ -163,7 +163,7 @@ void adminMenu() {
     const string adminMenuItems[adminMenuSize] = { "\x1B[36mCreate New Quiz\033[0m", "\x1B[31mView Quizzes\033[0m", "\x1B[32mBack to Main Menu\033[0m" };
 
     while (true) {
-       
+        cout << "\x1B[2J\x1B[H"; // Clear screen
         // Display the admin menu
         for (int i = 0; i < adminMenuSize; ++i) {
             if (i == adminOption) {
@@ -215,7 +215,7 @@ int main() {
         const string menuItems[menuSize] = { "\x1B[36mAdmin Login\033[0m", "\x1B[31mGuest Login\033[0m", "\x1B[32mExit\033[0m" };
 
         while (true) {
-            
+            cout << "\x1B[2J\x1B[H"; // Clear screen for the menu
             // Display the menu
             for (int i = 0; i < menuSize; ++i) {
                 if (i == menuOption) {
