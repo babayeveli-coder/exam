@@ -73,7 +73,25 @@ int displayQuizzes() {
 
         char choice = _getch();
 
-
+        // Use switch statement to handle user input
+        switch (choice) {
+        case 'W':
+        case 'w':
+            quizOption = (quizOption - 1 + numOptions) % numOptions; // Move up
+            break;
+        case 'S':
+        case 's':
+            quizOption = (quizOption + 1) % numOptions; // Move down
+            break;
+        case 'E':
+        case 'e':
+            return quizOption; // Return the selected quiz option index
+        case 'B':
+        case 'b':
+            return -1; // Go back to the previous menu
+        default:
+            break; // Ignore other inputs
+        }
     }
 }
 
