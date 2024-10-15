@@ -229,7 +229,32 @@ int main() {
             choice = _getch();
 
             // Use switch statement to handle user input
-
+            switch (choice) {
+            case 'W':
+            case 'w':
+                menuOption = (menuOption - 1 + menuSize) % menuSize; // Move up
+                break;
+            case 'S':
+            case 's':
+                menuOption = (menuOption + 1) % menuSize; // Move down
+                break;
+            case 'E':
+            case 'e':
+                // Process the selection when the user presses E
+                switch (menuOption) {
+                case 0: // Admin Login
+                    adminMenu(); // Call the admin menu function
+                    break;
+                case 1: // Guest Login
+                    takeQuiz(); // Call the corrected takeQuiz function
+                    break;
+                case 2: // Exit
+                    return 0; // Exit the program
+                }
+                break;
+            default:
+                break; // Ignore other inputs
+            }
         }
     }
 
